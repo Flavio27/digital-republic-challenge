@@ -1,0 +1,12 @@
+.input-div{
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.input-div .colapse{
+  max-width: 180px;
+  max-height: 50px;
+}
+.input-div .alert{
+  font-size: 13px;
+}

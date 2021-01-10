@@ -1,0 +1,28 @@
+.card{
+  text-align: center;
+  min-width: 250px;
+  max-width: 270px;
+  height: auto;
+  margin: 10px;
+  transition: all ease 0.3s;
+  scale: 0.8;
+  background-image: url("../../assets/parede.jpg");
+  
+}
+
+.card:hover{
+  background-color: #eeeeee;
+  transform: scale(1.1)
+}
+
+.add-item{
+  justify-content: center;
+  margin-top: 25px;
+  flex-direction: column;
+}
+
+.add-item .item{
+padding: 10px;
+width: 50px;
+font-size: 20px;
+}
