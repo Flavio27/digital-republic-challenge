@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/digital-republic-challenge/static/css/main.90029e28.chunk.css",
+    "main.js": "/digital-republic-challenge/static/js/main.c43eb453.chunk.js",
+    "main.js.map": "/digital-republic-challenge/static/js/main.c43eb453.chunk.js.map",
+    "runtime-main.js": "/digital-republic-challenge/static/js/runtime-main.ef38a789.js",
+    "runtime-main.js.map": "/digital-republic-challenge/static/js/runtime-main.ef38a789.js.map",
+    "static/js/2.4c9087d9.chunk.js": "/digital-republic-challenge/static/js/2.4c9087d9.chunk.js",
+    "static/js/2.4c9087d9.chunk.js.map": "/digital-republic-challenge/static/js/2.4c9087d9.chunk.js.map",
+    "static/js/3.095736ec.chunk.js": "/digital-republic-challenge/static/js/3.095736ec.chunk.js",
+    "static/js/3.095736ec.chunk.js.map": "/digital-republic-challenge/static/js/3.095736ec.chunk.js.map",
+    "index.html": "/digital-republic-challenge/index.html",
+    "static/css/main.90029e28.chunk.css.map": "/digital-republic-challenge/static/css/main.90029e28.chunk.css.map",
+    "static/js/2.4c9087d9.chunk.js.LICENSE.txt": "/digital-republic-challenge/static/js/2.4c9087d9.chunk.js.LICENSE.txt",
+    "static/media/card.css": "/digital-republic-challenge/static/media/parede.3006334e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ef38a789.js",
+    "static/js/2.4c9087d9.chunk.js",
+    "static/css/main.90029e28.chunk.css",
+    "static/js/main.c43eb453.chunk.js"
+  ]
+}
