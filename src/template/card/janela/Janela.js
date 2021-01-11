@@ -1,38 +1,38 @@
 import React, { useState } from 'react';
 import { useParedeData } from '../../../config/Parades';
-import {TAMANHO_JANELA, COMPRIMENTO_MINIMO} from '../../../config/Regras';
-import {IconButton, Collapse } from '@material-ui/core';
+import { TAMANHO_JANELA, COMPRIMENTO_MINIMO } from '../../../config/Regras';
+import { IconButton, Collapse } from '@material-ui/core';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CloseIcon from '@material-ui/icons/Close';
 import Alert from '@material-ui/lab/Alert';
-import './addJanela.css';
+import './janela.css';
 
-function AddJanela({ n }) {
+function Janela({ paredeId }) {
   const [open, setOpen] = useState(false);
   const { paredes, setParedes } = useParedeData();
 
-  function janela(addOrSub) {
-    if (addOrSub === 'add') {
-      if (paredes[n].tamanhoDisponivel >= TAMANHO_JANELA && paredes[n].comprimento >= COMPRIMENTO_MINIMO) {
-        setParedes([...paredes], paredes[n].janelas++)
-        setParedes([...paredes], paredes[n].tamanhoDisponivel -= TAMANHO_JANELA)
-        setParedes([...paredes], paredes[n].janelasError = false)
-        setOpen(false)
-      }else{
-        setParedes([...paredes], paredes[n].janelasError = true)
-        setOpen(true)
-      }
+  function adicionarJanela() {
+    if (paredes[paredeId].tamanhoDisponivel >= TAMANHO_JANELA && paredes[paredeId].comprimento >= COMPRIMENTO_MINIMO) {
+      setParedes([...paredes], paredes[paredeId].janelas++)
+      setParedes([...paredes], paredes[paredeId].tamanhoDisponivel -= TAMANHO_JANELA)
+      setParedes([...paredes], paredes[paredeId].janelasError = false)
+      setOpen(false)
     } else {
-      if (paredes[n].janelas !== 0) {
-        setParedes([...paredes], paredes[n].janelas--)
-        setParedes([...paredes], paredes[n].tamanhoDisponivel += TAMANHO_JANELA)
-        setParedes([...paredes], paredes[n].janelasError = false)
-        setOpen(false)
-      }
+      setParedes([...paredes], paredes[paredeId].janelasError = true)
+      setOpen(true)
     }
   }
-  
+
+  function removerJanela() {
+    if (paredes[paredeId].janelas !== 0) {
+      setParedes([...paredes], paredes[paredeId].janelas--)
+      setParedes([...paredes], paredes[paredeId].tamanhoDisponivel += TAMANHO_JANELA)
+      setParedes([...paredes], paredes[paredeId].janelasError = false)
+      setOpen(false)
+    }
+  }
+
   return (
     <div className="add-item">
       {
@@ -55,22 +55,22 @@ function AddJanela({ n }) {
       }
       <IconButton size="medium">
         <RemoveCircleIcon fontSize="inherit" className="sub"
-          onClick={() => janela('sub')}
+          onClick={() => removerJanela()}
         />
       </IconButton>
       <span className="item">
-        {(paredes[n].janelas > 0 ? 'Janelas ' : 'Janela ')}
-      [{paredes[n].janelas}]
+        {(paredes[paredeId].janelas > 0 ? 'Janelas ' : 'Janela ')}
+      [{paredes[paredeId].janelas}]
       </span>
       <IconButton size="medium">
         <AddCircleIcon fontSize="inherit" className="add"
-          onClick={() => janela('add')}
+          onClick={() => adicionarJanela()}
         />
       </IconButton>
-      <br/>
+      <br />
       <h6 className="tamanho-janela">{TAMANHO_JANELA.toFixed(2)}m²</h6>
     </div>
   )
 }
 
-export default AddJanela
+export default Janela

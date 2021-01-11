@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParedeData } from '../../config/Parades'
 import { ALTURA_MINIMA, TAMANHO_MAXIMO, TAMANHO_JANELA, TAMANHO_PORTA } from '../../config/Regras';
 import Parede from './parede/Parede'
-import AddJanela from './addJanela/AddJanela'
+import Janela from './janela/Janela'
 import AddPorta from './addPorta/AddPorta'
 import './card.css'
 
@@ -28,7 +28,7 @@ function Card({ paredeId }) {
         {paredes[paredeId].tamanho >= ALTURA_MINIMA && paredes[paredeId].tamanho <= TAMANHO_MAXIMO && !paredes[paredeId].tamanhoError ?
           <React.Fragment>
             <h4>Adicionar</h4>
-            <AddJanela n={paredeId} />
+            <Janela paredeId={paredeId} />
             <AddPorta n={paredeId} />
             <br />
             <span>
