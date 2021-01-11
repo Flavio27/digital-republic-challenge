@@ -1,39 +1,34 @@
 import React, { useState } from 'react';
 import { useParedeData } from '../../../config/Parades';
 import { ALTURA_MINIMA, TAMANHO_PORTA } from '../../../config/Regras';
-import {IconButton, Collapse } from '@material-ui/core';
+import { IconButton, Collapse } from '@material-ui/core';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CloseIcon from '@material-ui/icons/Close';
 import Alert from '@material-ui/lab/Alert';
-import './addPorta.css';
+import './porta.css';
 
-function AddPorta({ n }) {
+function Porta({ paredeId }) {
   const [open, setOpen] = useState(false);
   const { paredes, setParedes } = useParedeData();
-  
-  function porta(addOrSub) {
-    if (addOrSub === 'add') {
-      if (paredes[n].tamanhoDisponivel >= TAMANHO_PORTA) {
-        if (paredes[n].altura >= ALTURA_MINIMA) {
-          setParedes([...paredes], paredes[n].portas++)
-          setParedes([...paredes], paredes[n].tamanhoDisponivel -= TAMANHO_PORTA)
-          setOpen(false)
-        } else {
-          setParedes([...paredes], paredes[n].portasError = true)
-          setOpen(true)
-        }
-      } else {
-        setParedes([...paredes], paredes[n].portasError = true)
-        setOpen(true)
-      }
+
+  function adicionarPorta() {
+    if (paredes[paredeId].tamanhoDisponivel >= TAMANHO_PORTA && paredes[paredeId].altura >= ALTURA_MINIMA) {
+      setParedes([...paredes], paredes[paredeId].portas++)
+      setParedes([...paredes], paredes[paredeId].tamanhoDisponivel -= TAMANHO_PORTA)
+      setOpen(false)
     } else {
-      if (paredes[n].portas !== 0) {
-        setParedes([...paredes], paredes[n].portas--)
-        setParedes([...paredes], paredes[n].tamanhoDisponivel += TAMANHO_PORTA)
-        setParedes([...paredes], paredes[n].portasError = false)
-        setOpen(false)
-      }
+      setParedes([...paredes], paredes[paredeId].portasError = true)
+      setOpen(true)
+    }
+  }
+
+  function removerPorta() {
+    if (paredes[paredeId].portas !== 0) {
+      setParedes([...paredes], paredes[paredeId].portas--)
+      setParedes([...paredes], paredes[paredeId].tamanhoDisponivel += TAMANHO_PORTA)
+      setParedes([...paredes], paredes[paredeId].portasError = false)
+      setOpen(false)
     }
   }
 
@@ -59,22 +54,22 @@ function AddPorta({ n }) {
       }
       <IconButton size="medium">
         <RemoveCircleIcon fontSize="inherit" className="sub"
-          onClick={() => porta('sub')}
+          onClick={() => removerPorta()}
         />
       </IconButton>
       <span className="item">
-        {(paredes[n].portas > 0 ? 'Portas ' : 'Porta ')}
-            [{paredes[n].portas}]
+        {(paredes[paredeId].portas > 0 ? 'Portas ' : 'Porta ')}
+            [{paredes[paredeId].portas}]
           </span>
       <IconButton size="medium">
         <AddCircleIcon fontSize="inherit" className="add"
-          onClick={() => porta('add')}
+          onClick={() => adicionarPorta()}
         />
       </IconButton>
-      <br/>
+      <br />
       <h6 className="tamanho-porta">{TAMANHO_PORTA}m²</h6>
     </div>
   )
 }
 
-export default AddPorta
+export default Porta

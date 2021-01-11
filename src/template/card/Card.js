@@ -3,7 +3,7 @@ import { useParedeData } from '../../config/Parades'
 import { ALTURA_MINIMA, TAMANHO_MAXIMO, TAMANHO_JANELA, TAMANHO_PORTA } from '../../config/Regras';
 import Parede from './parede/Parede'
 import Janela from './janela/Janela'
-import AddPorta from './addPorta/AddPorta'
+import Porta from './porta/Porta'
 import './card.css'
 
 
@@ -29,7 +29,7 @@ function Card({ paredeId }) {
           <React.Fragment>
             <h4>Adicionar</h4>
             <Janela paredeId={paredeId} />
-            <AddPorta n={paredeId} />
+            <Porta paredeId={paredeId} />
             <br />
             <span>
               Espaço disponível: <strong>{paredes[paredeId].tamanhoDisponivel.toFixed(2)}m²</strong>
