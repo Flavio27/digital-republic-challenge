@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/digital-republic-challenge/static/css/main.90029e28.chunk.css",
-    "main.js": "/digital-republic-challenge/static/js/main.c43eb453.chunk.js",
-    "main.js.map": "/digital-republic-challenge/static/js/main.c43eb453.chunk.js.map",
-    "runtime-main.js": "/digital-republic-challenge/static/js/runtime-main.ef38a789.js",
-    "runtime-main.js.map": "/digital-republic-challenge/static/js/runtime-main.ef38a789.js.map",
-    "static/js/2.4c9087d9.chunk.js": "/digital-republic-challenge/static/js/2.4c9087d9.chunk.js",
-    "static/js/2.4c9087d9.chunk.js.map": "/digital-republic-challenge/static/js/2.4c9087d9.chunk.js.map",
-    "static/js/3.095736ec.chunk.js": "/digital-republic-challenge/static/js/3.095736ec.chunk.js",
-    "static/js/3.095736ec.chunk.js.map": "/digital-republic-challenge/static/js/3.095736ec.chunk.js.map",
+    "main.css": "/digital-republic-challenge/static/css/main.d1cfac55.chunk.css",
+    "main.js": "/digital-republic-challenge/static/js/main.ea9bd2cc.chunk.js",
+    "main.js.map": "/digital-republic-challenge/static/js/main.ea9bd2cc.chunk.js.map",
+    "runtime-main.js": "/digital-republic-challenge/static/js/runtime-main.e3198f68.js",
+    "runtime-main.js.map": "/digital-republic-challenge/static/js/runtime-main.e3198f68.js.map",
+    "static/js/2.f38b1074.chunk.js": "/digital-republic-challenge/static/js/2.f38b1074.chunk.js",
+    "static/js/2.f38b1074.chunk.js.map": "/digital-republic-challenge/static/js/2.f38b1074.chunk.js.map",
+    "static/js/3.7e2be0cb.chunk.js": "/digital-republic-challenge/static/js/3.7e2be0cb.chunk.js",
+    "static/js/3.7e2be0cb.chunk.js.map": "/digital-republic-challenge/static/js/3.7e2be0cb.chunk.js.map",
     "index.html": "/digital-republic-challenge/index.html",
-    "static/css/main.90029e28.chunk.css.map": "/digital-republic-challenge/static/css/main.90029e28.chunk.css.map",
-    "static/js/2.4c9087d9.chunk.js.LICENSE.txt": "/digital-republic-challenge/static/js/2.4c9087d9.chunk.js.LICENSE.txt",
+    "static/css/main.d1cfac55.chunk.css.map": "/digital-republic-challenge/static/css/main.d1cfac55.chunk.css.map",
+    "static/js/2.f38b1074.chunk.js.LICENSE.txt": "/digital-republic-challenge/static/js/2.f38b1074.chunk.js.LICENSE.txt",
     "static/media/card.css": "/digital-republic-challenge/static/media/parede.3006334e.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ef38a789.js",
-    "static/js/2.4c9087d9.chunk.js",
-    "static/css/main.90029e28.chunk.css",
-    "static/js/main.c43eb453.chunk.js"
+    "static/js/runtime-main.e3198f68.js",
+    "static/js/2.f38b1074.chunk.js",
+    "static/css/main.d1cfac55.chunk.css",
+    "static/js/main.ea9bd2cc.chunk.js"
   ]
 }
