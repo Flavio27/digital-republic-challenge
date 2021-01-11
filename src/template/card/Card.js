@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParedeData } from '../../config/Parades'
 import { ALTURA_MINIMA, TAMANHO_MAXIMO, TAMANHO_JANELA, TAMANHO_PORTA } from '../../config/Regras';
-import Medidas from './medidasParede/Parede'
+import Parede from './parede/Parede'
 import AddJanela from './addJanela/AddJanela'
 import AddPorta from './addPorta/AddPorta'
 import './card.css'
@@ -23,9 +23,9 @@ function Card({ paredeId }) {
         <h2 className="card-title">Parede {paredeId + 1}</h2>
         <h3>Tamanho: {paredes[paredeId].tamanho.toFixed(2)}m²</h3>
         <br />
-        <Medidas n={paredeId} />
+        <Parede paredeId={paredeId} />
         <br />
-        {paredes[paredeId].tamanho >= ALTURA_MINIMA && paredes[paredeId].tamanho <= TAMANHO_MAXIMO && paredes[paredeId].tamanhoError === false ?
+        {paredes[paredeId].tamanho >= ALTURA_MINIMA && paredes[paredeId].tamanho <= TAMANHO_MAXIMO && !paredes[paredeId].tamanhoError ?
           <React.Fragment>
             <h4>Adicionar</h4>
             <AddJanela n={paredeId} />
