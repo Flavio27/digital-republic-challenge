@@ -1,8 +1,10 @@
-## Como rodar
-* No terminal execute: `npm install`
-* Apos a instalação das depedências execute para rodar em modo SSR: `npm start`
-* Abra o browser no endereco: http://localhost:3000
+## Sobre projeto
+* O projeto consiste em uma calculadora de quanto de tinta o usuário vai gastar pintando 4 paredes;
 
+## Como rodar
+* No terminal execute: `npm install`;
+* Apos a instalação das depedências execute para rodar em modo SSR: `npm start`;
+* Abra o browser no endereco: http://localhost:3000
 
 ## informações
 * Solução do code challenge da Digital-Republic feito por: Flavio Rocha
