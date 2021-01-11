@@ -5,7 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import latatinta from '../../assets/latatinta.png'
 import './modal.css'
+
 let paredesTotal = 0
 let litroTinta = 5;
 
@@ -28,21 +30,20 @@ export default function TransitionsModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-
   const handleOpen = () => {
     let abrir = true;
     for (let i in paredes) {
-      if (paredes[i].tamanho < 2.2 || paredes[i].tamanhoError === true || paredes[i].alturaError === true) {
+      if (paredes[i].tamanho < 2.2 || paredes[i].tamanhoError || paredes[i].alturaError) {
         setParedes([...paredes], paredes[i].tamanhoError = true)
         abrir = false;
       }
     }
-    if (abrir === true) {
+    if (abrir) {
       setOpen(true);
     }
-
     somartotalParede()
   };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -59,14 +60,11 @@ export default function TransitionsModal() {
     }
     let totalTinta = paredesTotal / litroTinta;
     setTotalParede(totalTinta)
-    console.log(latas)
-
   }
 
   return (
     <div>
       <button type="button" onClick={handleOpen} className="btn btn-dark btn-lg btn-block">Calcular</button>
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -81,25 +79,29 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-
-            <h2 id="transition-modal-title">Total de tinta</h2>
+            <h2 id="transition-modal-title" className="alert btn-light info" role="alert">Total de tinta</h2>
             <p id="transition-modal-description">
-              Você irá precisar de {totalParede.toFixed(2)} litros de tinta para pintar.
+              Você irá precisar de <strong>{totalParede.toFixed(2)} litros</strong> de tinta para pintar a sala.
               </p>
-            <br/>
-            {latas.map(lata => (
-              <div>
-                
-                <p key={lata}>
-                {((totalParede / lata.quantidade) > Math.round(totalParede / lata.quantidade) ?
-                    Math.round(totalParede / lata.quantidade) + 1 : Math.round(totalParede / lata.quantidade))}
-               latas de {lata.quantidade} Litros. 
-              </p>
-              <hr/>
-              </div>
-            ))}
-
-            
+            <ul className="list-group">
+              <li className="list-group-item list-group-item-secondary">
+                <h5 className="info">Opções de latas</h5>
+              </li>
+              {latas.map(lata => (
+                <li key={lata.lata} className="list-group-item">
+                  <h5>
+                    <img src={latatinta} className="img-tinta" alt="lata-de-tinta" />
+                    {(
+                      (totalParede / lata.quantidade) > Math.round(totalParede / lata.quantidade) ?
+                        ` ${Math.round(totalParede / lata.quantidade) + 1} ` :
+                        ` ${Math.round(totalParede / lata.quantidade)} `)
+                    }
+                    {(Math.round(totalParede / lata.quantidade) > 1 ? 'Latas ' : 'Lata ')}
+                  de {lata.quantidade} Litros.
+              </h5>
+                </li>
+              ))}
+            </ul>
           </div>
         </Fade>
       </Modal>

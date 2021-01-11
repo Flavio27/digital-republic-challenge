@@ -54,7 +54,7 @@ function AddJanela({ n }) {
           </Alert>
         </Collapse>
       }
-      <IconButton size="Large">
+      <IconButton size="medium">
         <RemoveCircleIcon fontSize="inherit" className="sub"
           onClick={() => janela('sub')}
         />
@@ -63,7 +63,7 @@ function AddJanela({ n }) {
         {(paredes[n].janelas > 0 ? 'Janelas ' : 'Janela ')}
       [{paredes[n].janelas}]
       </span>
-      <IconButton size="Large">
+      <IconButton size="medium">
         <AddCircleIcon fontSize="inherit" className="add"
           onClick={() => janela('add')}
         />

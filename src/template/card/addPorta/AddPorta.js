@@ -57,7 +57,7 @@ function AddPorta({ n }) {
           </Alert>
         </Collapse>
       }
-      <IconButton size="Large">
+      <IconButton size="medium">
         <RemoveCircleIcon fontSize="inherit" className="sub"
           onClick={() => porta('sub')}
         />
@@ -66,7 +66,7 @@ function AddPorta({ n }) {
         {(paredes[n].portas > 0 ? 'Portas ' : 'Porta ')}
             [{paredes[n].portas}]
           </span>
-      <IconButton size="Large">
+      <IconButton size="medium">
         <AddCircleIcon fontSize="inherit" className="add"
           onClick={() => porta('add')}
         />
