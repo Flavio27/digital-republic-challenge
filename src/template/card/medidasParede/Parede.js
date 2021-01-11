@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParedeData } from '../../../data/Parades';
-import { tamanhoMaximo, tamanhoMinimo, alturaMinima } from '../../../data/Regras';
+import { useParedeData } from '../../../config/Parades';
+import { TAMANHO_MAXIMO, TAMANHO_MINIMO, ALTURA_MINIMA } from '../../../config/Regras';
 import { InputAdornment, Input, Collapse } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import './parede.css';
@@ -16,14 +16,14 @@ function Medidas({ n }) {
     if (tipo === 'comprimento') {
       setParedes([...paredes], paredes[n].comprimento = parseFloat(valor))
     } else {
-      if (valor >= alturaMinima) {
+      if (valor >= ALTURA_MINIMA) {
         setParedes([...paredes], paredes[n].altura = parseFloat(valor))
         setParedes([...paredes], paredes[n].alturaError = false)
       } else {
         setParedes([...paredes], paredes[n].alturaError = true)
       }
     }
-    if ((paredes[n].comprimento * paredes[n].altura) <= tamanhoMaximo && (paredes[n].comprimento * paredes[n].altura) >= tamanhoMinimo) {
+    if ((paredes[n].comprimento * paredes[n].altura) <= TAMANHO_MAXIMO && (paredes[n].comprimento * paredes[n].altura) >= TAMANHO_MINIMO) {
       setParedes([...paredes], paredes[n].tamanho = paredes[n].comprimento * paredes[n].altura)
       setParedes([...paredes], paredes[n].tamanhoDisponivel = (paredes[n].comprimento * paredes[n].altura) / 2)
       setParedes([...paredes], paredes[n].tamanhoError = false)
@@ -37,9 +37,9 @@ function Medidas({ n }) {
       <h4>Medidas</h4>
       <Collapse in={paredes[n].tamanhoError}>
         <Alert severity="error">
-          Tamanho máximo <strong>{tamanhoMaximo}m²</strong>
+          Tamanho máximo <strong>{TAMANHO_MAXIMO}m²</strong>
           <br />
-          Tamanho minimo <strong>{tamanhoMinimo}m²</strong>
+          Tamanho minimo <strong>{TAMANHO_MINIMO}m²</strong>
         </Alert>
       </Collapse>
       <div className="input-div">
@@ -56,7 +56,7 @@ function Medidas({ n }) {
         />
         <Collapse className="colapse" in={paredes[n].alturaError}>
           <span className="alert text-danger">
-            * Altura minima {alturaMinima}
+            * Altura minima {ALTURA_MINIMA}
           </span>
         </Collapse>
         <Input

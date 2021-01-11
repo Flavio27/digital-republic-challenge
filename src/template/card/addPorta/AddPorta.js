@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useParedeData } from '../../../data/Parades';
-import { alturaMinima, tamanhoPorta } from '../../../data/Regras';
+import { useParedeData } from '../../../config/Parades';
+import { ALTURA_MINIMA, TAMANHO_PORTA } from '../../../config/Regras';
 import {IconButton, Collapse } from '@material-ui/core';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
@@ -14,10 +14,10 @@ function AddPorta({ n }) {
   
   function porta(addOrSub) {
     if (addOrSub === 'add') {
-      if (paredes[n].tamanhoDisponivel >= tamanhoPorta) {
-        if (paredes[n].altura >= alturaMinima) {
+      if (paredes[n].tamanhoDisponivel >= TAMANHO_PORTA) {
+        if (paredes[n].altura >= ALTURA_MINIMA) {
           setParedes([...paredes], paredes[n].portas++)
-          setParedes([...paredes], paredes[n].tamanhoDisponivel -= tamanhoPorta)
+          setParedes([...paredes], paredes[n].tamanhoDisponivel -= TAMANHO_PORTA)
           setOpen(false)
         } else {
           setParedes([...paredes], paredes[n].portasError = true)
@@ -30,7 +30,7 @@ function AddPorta({ n }) {
     } else {
       if (paredes[n].portas !== 0) {
         setParedes([...paredes], paredes[n].portas--)
-        setParedes([...paredes], paredes[n].tamanhoDisponivel += tamanhoPorta)
+        setParedes([...paredes], paredes[n].tamanhoDisponivel += TAMANHO_PORTA)
         setParedes([...paredes], paredes[n].portasError = false)
         setOpen(false)
       }
@@ -72,7 +72,7 @@ function AddPorta({ n }) {
         />
       </IconButton>
       <br/>
-      <h6 className="tamanho-porta">{tamanhoPorta}m²</h6>
+      <h6 className="tamanho-porta">{TAMANHO_PORTA}m²</h6>
     </div>
   )
 }

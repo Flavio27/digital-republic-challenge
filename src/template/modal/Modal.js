@@ -1,7 +1,7 @@
 import React from 'react';
-import { useParedeData } from '../../data/Parades'
+import { useParedeData } from '../../config/Parades'
 import { makeStyles } from '@material-ui/core/styles';
-import { alturaMinima, litroTinta, latas } from '../../data/Regras';
+import { ALTURA_MINIMA, LITRO_TINTA, LATAS } from '../../config/Regras';
 import {Modal, Backdrop, Fade} from '@material-ui/core';
 import latatinta from '../../assets/latatinta.png'
 import './modal.css'
@@ -28,7 +28,7 @@ export default function TransitionsModal() {
   const handleOpen = () => {
     let abrir = true;
     for (let i in paredes) {
-      if (paredes[i].tamanho < alturaMinima || paredes[i].tamanhoError || paredes[i].alturaError) {
+      if (paredes[i].tamanho < ALTURA_MINIMA || paredes[i].tamanhoError || paredes[i].alturaError) {
         setParedes([...paredes], paredes[i].tamanhoError = true)
         abrir = false;
       }
@@ -49,11 +49,11 @@ export default function TransitionsModal() {
 
     for (let i in paredes) {
       paredesTotal += paredes[i].tinta;
-      if (paredes[i].tamanho < alturaMinima) {
+      if (paredes[i].tamanho < ALTURA_MINIMA) {
         setParedes([...paredes], paredes[i].tamanhoError = true)
       }
     }
-    let totalTinta = paredesTotal / litroTinta;
+    let totalTinta = paredesTotal / LITRO_TINTA;
     setTotalParede(totalTinta)
   }
 
@@ -82,7 +82,7 @@ export default function TransitionsModal() {
               <li className="list-group-item list-group-item-secondary">
                 <h5 className="info">Opções de latas</h5>
               </li>
-              {latas.map(lata => (
+              {LATAS.map(lata => (
                 <li key={lata.lata} className="list-group-item">
                   <h5>
                     <img src={latatinta} className="img-tinta" alt="lata-de-tinta" />

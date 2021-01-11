@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css';
 import Body from './template/body/Body'
-import ParedesData from './data/Parades'
+import ParedesData from './config/Parades'
 
 
 function App() {

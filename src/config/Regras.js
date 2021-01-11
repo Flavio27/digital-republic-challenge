@@ -1,29 +1,29 @@
 // Quantidade de parede de uma sala
-export const qtdParedes = 4;
+export const QUANTIDADE_PAREDES = 4;
 
 // Tamanho maximo de uma parede (m²)
-export const tamanhoMaximo = 15;
+export const TAMANHO_MAXIMO = 15;
 
 // Tamanho minimo de uma parede (m²)
-export const tamanhoMinimo = 1;
+export const TAMANHO_MINIMO = 1;
 
 // Altura minima de uma parede (m)
-export const alturaMinima = 2.20;
+export const ALTURA_MINIMA = 2.20;
 
 // Quantidade m² por cada litro de tinta:
-export const litroTinta = 5;
+export const LITRO_TINTA = 5;
 
 // Tamanho total de uma janela (m²)
-export const tamanhoJanela = 2.40;
+export const TAMANHO_JANELA = 2.40;
 
 //Tamanho total de uma Porta (m²)
-export const tamanhoPorta = 1.52;
+export const TAMANHO_PORTA = 1.52;
 
 // Comprimento minimo para adicionar uma janela (m): 
-export const comprimentoMinimo = 2;
+export const COMPRIMENTO_MINIMO = 2;
 
 // Variações de tamanho das latas de tinta
-export const latas = [
+export const LATAS = [
   {
     lata: 1,
     quantidade: 0.5

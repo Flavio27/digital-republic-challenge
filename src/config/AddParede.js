@@ -1,11 +1,11 @@
 import React from 'react';
 import { useParedeData } from './Parades';
-import { qtdParedes } from './Regras';
+import { QUANTIDADE_PAREDES } from './Regras';
 
 function AddParede() {
   const { paredes, setParedes } = useParedeData();
   function paredeAdd() {
-    if (paredes.length < qtdParedes) {
+    if (paredes.length < QUANTIDADE_PAREDES) {
       return (
         setParedes(paredes => [...paredes, {
           id: paredes.length,
