@@ -2,8 +2,9 @@
 * O projeto consiste em uma calculadora de quanto de tinta o usuário vai gastar pintando 4 paredes;
 
 ## Como rodar aplicação
-* No terminal execute: `npm install`;
-* Apos a instalação das depedências execute para rodar em modo SSR: `npm start`;
+* Abra o terminal e navegue até a pasta do projeto;
+* No terminal execute o comando: `npm install`;
+* Apos a instalação das depedências execute o comando `npm start`;
 * Abra o browser no endereco: http://localhost:3000
 
 ## informações
