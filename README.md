@@ -1,6 +1,6 @@
-# Solução do code challenge da Digital-Republic feito por: Flavio Rocha
-## Disponível online em: https://flavio27.github.io/digital-republic-challenge/
-## Código Fonte Disponível em: https://github.com/Flavio27/digital-republic-challenge
+### Solução do code challenge da Digital-Republic feito por: Flavio Rocha
+### Disponível online em: https://flavio27.github.io/digital-republic-challenge/
+### Código Fonte Disponível em: https://github.com/Flavio27/digital-republic-challenge
 
 ## Como rodar
 * No terminal execute: `npm install`
