@@ -1,11 +1,11 @@
-import React from 'react'
-import { useParedeData } from './Parades'
+import React from 'react';
+import { useParedeData } from './Parades';
+import { qtdParedes } from './Regras';
 
 function AddParede() {
   const { paredes, setParedes } = useParedeData();
-
   function paredeAdd() {
-    if (paredes.length < 4) {
+    if (paredes.length < qtdParedes) {
       return (
         setParedes(paredes => [...paredes, {
           id: paredes.length,

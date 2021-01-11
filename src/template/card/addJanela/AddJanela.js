@@ -1,23 +1,22 @@
-import React, { useState } from 'react'
-import IconButton from '@material-ui/core/IconButton';
+import React, { useState } from 'react';
+import { useParedeData } from '../../../data/Parades';
+import {tamanhoJanela, comprimentoMinimo} from '../../../data/Regras';
+import {IconButton, Collapse } from '@material-ui/core';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import Alert from '@material-ui/lab/Alert'
-import Collapse from '@material-ui/core/Collapse';
 import CloseIcon from '@material-ui/icons/Close';
-import { useParedeData } from '../../../data/Parades'
-import './addJanela.css'
+import Alert from '@material-ui/lab/Alert';
+import './addJanela.css';
 
 function AddJanela({ n }) {
   const [open, setOpen] = useState(false);
   const { paredes, setParedes } = useParedeData();
 
   function janela(addOrSub) {
-
     if (addOrSub === 'add') {
-      if (paredes[n].tamanhoDisponivel >= 2.40 && paredes[n].comprimento >= 2) {
+      if (paredes[n].tamanhoDisponivel >= tamanhoJanela && paredes[n].comprimento >= comprimentoMinimo) {
         setParedes([...paredes], paredes[n].janelas++)
-        setParedes([...paredes], paredes[n].tamanhoDisponivel -= 2.40)
+        setParedes([...paredes], paredes[n].tamanhoDisponivel -= tamanhoJanela)
         setParedes([...paredes], paredes[n].janelasError = false)
         setOpen(false)
       }else{
@@ -27,7 +26,7 @@ function AddJanela({ n }) {
     } else {
       if (paredes[n].janelas !== 0) {
         setParedes([...paredes], paredes[n].janelas--)
-        setParedes([...paredes], paredes[n].tamanhoDisponivel += 2.40)
+        setParedes([...paredes], paredes[n].tamanhoDisponivel += tamanhoJanela)
         setParedes([...paredes], paredes[n].janelasError = false)
         setOpen(false)
       }
@@ -69,7 +68,7 @@ function AddJanela({ n }) {
         />
       </IconButton>
       <br/>
-      <h6 className="tamanho-janela">2.40m²</h6>
+      <h6 className="tamanho-janela">{tamanhoJanela.toFixed(2)}m²</h6>
     </div>
   )
 }

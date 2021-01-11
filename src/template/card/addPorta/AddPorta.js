@@ -1,23 +1,23 @@
-import React, { useState } from 'react'
-import IconButton from '@material-ui/core/IconButton';
+import React, { useState } from 'react';
+import { useParedeData } from '../../../data/Parades';
+import { alturaMinima, tamanhoPorta } from '../../../data/Regras';
+import {IconButton, Collapse } from '@material-ui/core';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import Alert from '@material-ui/lab/Alert'
-import Collapse from '@material-ui/core/Collapse';
 import CloseIcon from '@material-ui/icons/Close';
-import { useParedeData } from '../../../data/Parades'
-import './addPorta.css'
+import Alert from '@material-ui/lab/Alert';
+import './addPorta.css';
 
 function AddPorta({ n }) {
   const [open, setOpen] = useState(false);
   const { paredes, setParedes } = useParedeData();
-
+  
   function porta(addOrSub) {
     if (addOrSub === 'add') {
-      if (paredes[n].tamanhoDisponivel >= 1.52) {
-        if (paredes[n].altura >= 2.20) {
+      if (paredes[n].tamanhoDisponivel >= tamanhoPorta) {
+        if (paredes[n].altura >= alturaMinima) {
           setParedes([...paredes], paredes[n].portas++)
-          setParedes([...paredes], paredes[n].tamanhoDisponivel -= 1.52)
+          setParedes([...paredes], paredes[n].tamanhoDisponivel -= tamanhoPorta)
           setOpen(false)
         } else {
           setParedes([...paredes], paredes[n].portasError = true)
@@ -30,7 +30,7 @@ function AddPorta({ n }) {
     } else {
       if (paredes[n].portas !== 0) {
         setParedes([...paredes], paredes[n].portas--)
-        setParedes([...paredes], paredes[n].tamanhoDisponivel += 1.52)
+        setParedes([...paredes], paredes[n].tamanhoDisponivel += tamanhoPorta)
         setParedes([...paredes], paredes[n].portasError = false)
         setOpen(false)
       }
@@ -72,7 +72,7 @@ function AddPorta({ n }) {
         />
       </IconButton>
       <br/>
-      <h6 className="tamanho-porta">1.52m²</h6>
+      <h6 className="tamanho-porta">{tamanhoPorta}m²</h6>
     </div>
   )
 }

@@ -1,15 +1,10 @@
 import React from 'react';
 import { useParedeData } from '../../data/Parades'
-import latas from '../../data/LatasTinta'
 import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import { alturaMinima, litroTinta, latas } from '../../data/Regras';
+import {Modal, Backdrop, Fade} from '@material-ui/core';
 import latatinta from '../../assets/latatinta.png'
 import './modal.css'
-
-let paredesTotal = 0
-let litroTinta = 5;
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -33,7 +28,7 @@ export default function TransitionsModal() {
   const handleOpen = () => {
     let abrir = true;
     for (let i in paredes) {
-      if (paredes[i].tamanho < 2.2 || paredes[i].tamanhoError || paredes[i].alturaError) {
+      if (paredes[i].tamanho < alturaMinima || paredes[i].tamanhoError || paredes[i].alturaError) {
         setParedes([...paredes], paredes[i].tamanhoError = true)
         abrir = false;
       }
@@ -50,11 +45,11 @@ export default function TransitionsModal() {
 
 
   function somartotalParede() {
-    paredesTotal = 0;
+    let paredesTotal = 0;
 
     for (let i in paredes) {
       paredesTotal += paredes[i].tinta;
-      if (paredes[i].tamanho < 2.2) {
+      if (paredes[i].tamanho < alturaMinima) {
         setParedes([...paredes], paredes[i].tamanhoError = true)
       }
     }

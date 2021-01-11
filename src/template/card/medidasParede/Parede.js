@@ -1,28 +1,29 @@
-import React from 'react'
-import { useParedeData } from '../../../data/Parades'
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Input from '@material-ui/core/Input';
-import Alert from '@material-ui/lab/Alert'
-import Collapse from '@material-ui/core/Collapse';
-import './parede.css'
+import React from 'react';
+import { useParedeData } from '../../../data/Parades';
+import { tamanhoMaximo, tamanhoMinimo, alturaMinima } from '../../../data/Regras';
+import { InputAdornment, Input, Collapse } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import './parede.css';
 
 function Medidas({ n }) {
   const { paredes, setParedes } = useParedeData();
+
   function parede(tipo, valor) {
     setParedes([...paredes], paredes[n].janelas = 0)
+    setParedes([...paredes], paredes[n].portas = 0)
     setParedes([...paredes], paredes[n].janelasError = false)
     setParedes([...paredes], paredes[n].portasError = false)
     if (tipo === 'comprimento') {
       setParedes([...paredes], paredes[n].comprimento = parseFloat(valor))
     } else {
-      if (valor >= 2.20) {
+      if (valor >= alturaMinima) {
         setParedes([...paredes], paredes[n].altura = parseFloat(valor))
         setParedes([...paredes], paredes[n].alturaError = false)
       } else {
         setParedes([...paredes], paredes[n].alturaError = true)
       }
     }
-    if ((paredes[n].comprimento * paredes[n].altura) <= 15 && (paredes[n].comprimento * paredes[n].altura) >= 1) {
+    if ((paredes[n].comprimento * paredes[n].altura) <= tamanhoMaximo && (paredes[n].comprimento * paredes[n].altura) >= tamanhoMinimo) {
       setParedes([...paredes], paredes[n].tamanho = paredes[n].comprimento * paredes[n].altura)
       setParedes([...paredes], paredes[n].tamanhoDisponivel = (paredes[n].comprimento * paredes[n].altura) / 2)
       setParedes([...paredes], paredes[n].tamanhoError = false)
@@ -30,14 +31,15 @@ function Medidas({ n }) {
       setParedes([...paredes], paredes[n].tamanhoError = true)
     }
   }
+
   return (
     <React.Fragment>
       <h4>Medidas</h4>
       <Collapse in={paredes[n].tamanhoError}>
         <Alert severity="error">
-          Tamanho máximo <strong>15m²</strong>
+          Tamanho máximo <strong>{tamanhoMaximo}m²</strong>
           <br />
-          Tamanho minimo <strong>1m²</strong>
+          Tamanho minimo <strong>{tamanhoMinimo}m²</strong>
         </Alert>
       </Collapse>
       <div className="input-div">
@@ -54,7 +56,7 @@ function Medidas({ n }) {
         />
         <Collapse className="colapse" in={paredes[n].alturaError}>
           <span className="alert text-danger">
-            * Altura minima 2.20
+            * Altura minima {alturaMinima}
           </span>
         </Collapse>
         <Input
