@@ -10,7 +10,7 @@ function Body() {
   return (
     <div className="body">
       {paredes.map(parede =>
-        <Card n={parede.id} key={parede.id} />
+        <Card paredeId={parede.id} key={parede.id} />
       )}
       <div className="div-modal">
         <Modal />
